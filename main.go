@@ -11,8 +11,13 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	new, err := os.Create("foo.html")
+	if err != nil {
+		log.Println("Error crating file", err)
+	}
+	defer new.Close()
 
-	err = index.Execute(os.Stdout, nil)
+	err = index.Execute(new, nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
