@@ -15,7 +15,10 @@ func main() {
 	if err != nil {
 		log.Println("Error crating file", err)
 	}
-	defer new.Close()
+	new2, err := index.ParseFiles("one", "two")
+	if err != nil {
+		log.Fatalln(err)
+	}
 
 	err = index.Execute(new, nil)
 	if err != nil {
