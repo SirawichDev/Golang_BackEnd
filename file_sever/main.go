@@ -1,6 +1,7 @@
 package main
 
 import (
+	"html/template"
 	"io"
 	"net/http"
 )
@@ -16,5 +17,9 @@ func p1(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, `<img src="q1.jpg">`)
 }
 func p3(res http.ResponseWriter, req *http.Request) {
-	tpl
+	tpl, err := template.ParseFiles("404.html")
+
+	if err != nil {
+
+	}
 }
